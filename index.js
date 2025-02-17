@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const loansRoutes = require('./routes/loans')
+const categoriesRoutes = require('./routes/categories')
 require("dotenv").config();
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("./loans", loansRoutes);
+app.use("./categories", categoriesRoutes)
 
 // Start server
 app.listen(port, () => {
