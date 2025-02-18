@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const loansRoutes = require("./routes/loans");
 const categoriesRoutes = require("./routes/categories");
 const booksRoutes = require("./routes/books");
+const usersRoutes = require('./routes/users')
 require("dotenv").config();
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use("/loans", loansRoutes);
 app.use("/categories", categoriesRoutes);
 app.use("/books", booksRoutes);
+app.use("/users", usersRoutes);
 
 // Start server
 app.listen(port, () => {
