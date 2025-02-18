@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("./loans", loansRoutes);
-app.use("./categories", categoriesRoutes)
+app.use("./categories", categoriesRoutes);
 
 // Start server
 app.listen(port, () => {

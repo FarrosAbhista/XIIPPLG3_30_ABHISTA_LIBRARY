@@ -4,7 +4,7 @@ const db = require('../config/db');
 
 // Get all categories
 router.get('/', (req, res) => {
-  db.query('SELECT * FROM kategori', (err, results) => {
+  db.query('SELECT * FROM categories', (err, results) => {
     if (err) {
       console.error("Database error:", err.message);
       res.status(500).json({ error: err.message });
@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
   if (!name) {
     return res.status(400).json({ error: 'Name is required' });
   }
-  db.query('INSERT INTO kategori (name) VALUES (?)', [name], (err, results) => {
+  db.query('INSERT INTO categories (name) VALUES (?)', [name], (err, results) => {
     if (err) {
       console.error("Database error:", err.message);
       res.status(500).json({ error: err.message });
@@ -37,7 +37,7 @@ router.put('/:id', (req, res) => {
   if (!name) {
     return res.status(400).json({ error: 'Name is required' });
   }
-  db.query('UPDATE kategori SET name = ? WHERE id = ?', [name, id], (err, results) => {
+  db.query('UPDATE categories SET name = ? WHERE id = ?', [name, id], (err, results) => {
     if (err) {
       console.error("Database error:", err.message);
       res.status(500).json({ error: err.message });
@@ -50,7 +50,7 @@ router.put('/:id', (req, res) => {
 // Delete a category
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
-  db.query('DELETE FROM kategori WHERE id = ?', [id], (err, results) => {
+  db.query('DELETE FROM categories WHERE id = ?', [id], (err, results) => {
     if (err) {
       console.error("Database error:", err.message);
       res.status(500).json({ error: err.message });
